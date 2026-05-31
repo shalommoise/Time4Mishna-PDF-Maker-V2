@@ -15,6 +15,51 @@
     </style>
     <% } %>
     <style><%- css %></style>
+    <style>
+      @page {
+        @top-left {
+          background: #344d6b;
+          content: "";
+          height: 8mm;
+        }
+
+        @top-center {
+          background: #344d6b;
+          color: #f4f8fc;
+          content: <%- continuationHeaderTitleCss %>;
+          direction: rtl;
+          font-family: "Guttman Hatzvi", "Noto Serif Hebrew", "Noto Sans Hebrew", "Times New Roman", serif;
+          font-size: 10px;
+          font-weight: 700;
+          height: 8mm;
+          line-height: 8mm;
+          padding: 0 3mm;
+          text-align: right;
+          vertical-align: middle;
+          white-space: nowrap;
+        }
+
+        @top-right {
+          background: #344d6b;
+          content: "";
+          height: 8mm;
+        }
+      }
+
+      @page:first {
+        @top-left {
+          content: none;
+        }
+
+        @top-center {
+          content: none;
+        }
+
+        @top-right {
+          content: none;
+        }
+      }
+    </style>
   </head>
   <body>
     <main class="pdf-page">
@@ -38,8 +83,8 @@
         <%
           const dateParts = [
             dateInfo.hebrewDate ? { text: dateInfo.hebrewDate, dir: 'rtl' } : null,
-            dateInfo.gregorianDate ? { text: dateInfo.gregorianDate, dir: 'ltr' } : null,
             dateInfo.dayOfWeek ? { text: dateInfo.dayOfWeek, dir: 'ltr' } : null,
+            dateInfo.gregorianDate ? { text: dateInfo.gregorianDate, dir: 'ltr' } : null,
             dateInfo.specialDate ? { text: dateInfo.specialDate, dir: 'rtl' } : null
           ].filter(Boolean);
         %>

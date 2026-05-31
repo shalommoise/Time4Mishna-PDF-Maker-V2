@@ -34,6 +34,13 @@ function fileUrl(filePath) {
   return filePath ? pathToFileURL(filePath).href : null;
 }
 
+function cssString(value) {
+  return `"${String(value)
+    .replace(/\\/g, '\\\\')
+    .replace(/"/g, '\\"')
+    .replace(/\r?\n/g, '\\A ')}"`;
+}
+
 function formatDateInfo(schedule) {
   if (!schedule) {
     return null;
@@ -74,10 +81,13 @@ async function buildTemplateData({ mishnayos, schedule = null }) {
     path.join(assetsDir, 'jewish-futures.svg')
   ]);
   const hebrewFont = await firstFontPath(fontsDir);
+  const hebrewTitle = buildHebrewTitle(normalizedMishnayos);
+  const englishTitle = buildEnglishTitle(normalizedMishnayos);
 
   return {
-    hebrewTitle: buildHebrewTitle(normalizedMishnayos),
-    englishTitle: buildEnglishTitle(normalizedMishnayos),
+    hebrewTitle,
+    englishTitle,
+    continuationHeaderTitleCss: cssString(`${hebrewTitle} | \u2066Time4Mishna\u2069`),
     dateInfo: formatDateInfo(schedule),
     schedule,
     mishnayos: normalizedMishnayos,

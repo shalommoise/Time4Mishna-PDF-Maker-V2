@@ -1,5 +1,9 @@
 @page {
   size: A4;
+  margin: 34mm 18mm 20mm;
+}
+
+@page:first {
   margin: 18mm 18mm 20mm;
 }
 
@@ -40,7 +44,7 @@ body {
   background: var(--header-footer-bg);
   border-bottom: 0;
   color: #ffffff;
-  padding: 5mm 7mm 4.5mm;
+  padding: 4mm 7mm 3.5mm;
   margin-bottom: 7mm;
 }
 
@@ -49,7 +53,7 @@ body {
   display: flex;
   gap: 8mm;
   justify-content: space-between;
-  min-height: 96px;
+  min-height: 84px;
 }
 
 .brand-row {
@@ -62,8 +66,8 @@ body {
 
 .brand-logo {
   display: block;
-  max-height: 96px;
-  max-width: 210px;
+  max-height: 88px;
+  max-width: 205px;
   object-fit: contain;
   width: 100%;
 }
@@ -111,7 +115,7 @@ body {
   font-size: 11px;
   justify-content: flex-start;
   line-height: 1.3;
-  margin-top: 2.5mm;
+  margin-top: 2mm;
 }
 
 .date-separator {
@@ -176,11 +180,11 @@ body {
   font-size: 10px;
   gap: 3mm;
   justify-content: center;
-  left: 18mm;
+  left: 0;
   line-height: 1.35;
   padding: 2mm 4mm;
   position: fixed;
-  right: 18mm;
+  right: 0;
   text-align: center;
 }
 
