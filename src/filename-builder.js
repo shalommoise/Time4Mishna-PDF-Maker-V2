@@ -64,7 +64,7 @@ function buildOutputFilename(mishnayos) {
   const { first, last } = getFirstAndLast(mishnayos);
   const name = slugify(first.masechta_name);
 
-  return `${name}_${first.perek}_${first.mishna}-${last.perek}_${last.mishna}`;
+  return `${name}_${first.perek}.${first.mishna}-${last.perek}.${last.mishna}`;
 }
 
 function buildOutputParts(mishnayos) {

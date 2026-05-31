@@ -61,8 +61,8 @@ npm run generate:sample
 This uses `samples/terumos_1_4-1_7.sample.json` and writes:
 
 ```text
-output/html/zeraim/terumos/terumos_1_4-1_7.html
-output/pdf/zeraim/terumos/terumos_1_4-1_7.pdf
+output/html/zeraim/terumos/terumos_1.4-1.7.html
+output/pdf/zeraim/terumos/terumos_1.4-1.7.pdf
 ```
 
 ## Generate By Date
@@ -95,8 +95,8 @@ output/pdf/<seder>/<masechta>/<filename>.pdf
 Filenames are lowercase and machine-friendly, for example:
 
 ```text
-terumos_1_4-1_7.pdf
-terumos_1_8-2_1.pdf
+terumos_1.4-1.7.pdf
+maaser_sheni_4.12-5.3.pdf
 ```
 
 ## Hebrew And RTL Rendering
