@@ -1,0 +1,27 @@
+{
+  "name": "time4mishna-pdf-generator",
+  "version": "1.0.0",
+  "description": "Generate branded Time4Mishna Mishnah text PDFs from an existing Time4Torah MySQL database.",
+  "main": "src/cli.js",
+  "scripts": {
+    "generate:date": "node src/cli.js generate:date",
+    "generate:ids": "node src/cli.js generate:ids",
+    "generate:sample": "node src/cli.js generate:sample",
+    "check": "node src/cli.js generate:sample"
+  },
+  "keywords": [
+    "time4mishna",
+    "pdf",
+    "mishnah",
+    "mysql"
+  ],
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "commander": "^12.1.0",
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
+    "mysql2": "^3.12.0",
+    "playwright": "^1.49.1"
+  }
+}

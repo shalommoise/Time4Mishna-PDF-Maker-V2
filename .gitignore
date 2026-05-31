@@ -1,0 +1,10 @@
+node_modules/
+.env
+
+output/html/**/*.html
+output/pdf/**/*.pdf
+!output/html/.gitkeep
+!output/pdf/.gitkeep
+
+npm-debug.log*
+.DS_Store

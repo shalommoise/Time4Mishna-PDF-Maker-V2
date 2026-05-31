@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= englishTitle %></title>
+    <% if (assets.hebrewFont) { %>
+    <style>
+      @font-face {
+        font-family: "Guttman Hatzvi";
+        src: url("<%= assets.hebrewFont %>");
+        font-weight: 400;
+        font-style: normal;
+      }
+    </style>
+    <% } %>
+    <style><%- css %></style>
+  </head>
+  <body>
+    <main class="pdf-page">
+      <header class="document-header">
+        <div class="header-main" dir="ltr">
+          <div class="brand-row">
+            <% if (assets.brandLogo) { %>
+            <img class="brand-logo" src="<%= assets.brandLogo %>" alt="Time4Mishna">
+            <% } else { %>
+            <div class="text-logo">Time4Mishna</div>
+            <% } %>
+          </div>
+
+          <div class="title-block" dir="rtl">
+            <h1><%= hebrewTitle %></h1>
+            <p class="subtitle" dir="ltr"><%= englishTitle %></p>
+          </div>
+        </div>
+
+        <% if (dateInfo) { %>
+        <%
+          const dateParts = [
+            dateInfo.hebrewDate ? { text: dateInfo.hebrewDate, dir: 'rtl' } : null,
+            dateInfo.gregorianDate ? { text: dateInfo.gregorianDate, dir: 'ltr' } : null,
+            dateInfo.dayOfWeek ? { text: dateInfo.dayOfWeek, dir: 'ltr' } : null,
+            dateInfo.specialDate ? { text: dateInfo.specialDate, dir: 'rtl' } : null
+          ].filter(Boolean);
+        %>
+        <div class="date-line" dir="ltr">
+          <% dateParts.forEach((part, index) => { %>
+            <% if (index > 0) { %><span class="date-separator" aria-hidden="true">·</span><% } %>
+            <span dir="<%= part.dir %>"><%= part.text %></span>
+          <% }) %>
+        </div>
+        <% if (dateInfo.additionalNotice) { %>
+        <p class="notice"><%= dateInfo.additionalNotice %></p>
+        <% } %>
+        <% } %>
+      </header>
+
+      <section class="mishnayos">
+        <% mishnayos.forEach((item) => { %>
+        <article class="mishna-block">
+          <h2>פרק <%= item.perek_he %> – משנה <%= item.mishna_he %></h2>
+          <div class="mishna-text"><%= item.mishna_text %></div>
+        </article>
+        <% }) %>
+      </section>
+
+      <footer class="document-footer" dir="ltr">
+        <% if (assets.jewishFuturesLogo) { %>
+        <img class="jewish-futures-logo" src="<%= assets.jewishFuturesLogo %>" alt="Jewish Futures">
+        <% } %>
+        <span>Time4Torah is a member of the Jewish Futures family of organisations</span>
+      </footer>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+{
+  "schedule": {
+    "daily_schedule_id": 1,
+    "shiur_type": "daily",
+    "additional_notice": null,
+    "gregorian_date": "2026-06-01",
+    "hebrew_date": "16 Sivan 5786",
+    "hebrew_date_he": "ט״ז סיון תשפ״ו",
+    "day_of_week": "Monday",
+    "is_yom_tov": false,
+    "special_date": null,
+    "time4mishna_shiur_id": 1,
+    "shiur_title": "Terumos 1:4-1:7",
+    "start_mishna": 104,
+    "end_mishna": 107
+  },
+  "mishnayos": [
+    {
+      "mishna_id": 104,
+      "perek": 1,
+      "mishna": 4,
+      "mishna_text": "אין תורמין ממין על שאינו מינו, ואם תרם אין תרומתו תרומה. כל מין חיטים אחד, כל מין תאנים וגרוגרות ודבילה אחד.",
+      "masechta_id": 6,
+      "masechta_name": "Terumos",
+      "masechta_alt_names": "Terumot,T'rumot",
+      "seder_id": 1,
+      "seder_name": "Zeraim",
+      "seder_alt_names": "Seeds"
+    },
+    {
+      "mishna_id": 105,
+      "perek": 1,
+      "mishna": 5,
+      "mishna_text": "אין תורמין מן הטהור על הטמא, ואם תרם תרומתו תרומה. באמת אמרו העיגול של דבילה שנטמא מקצתו תורם מן הטהור שבו על הטמא שבו.",
+      "masechta_id": 6,
+      "masechta_name": "Terumos",
+      "masechta_alt_names": "Terumot,T'rumot",
+      "seder_id": 1,
+      "seder_name": "Zeraim",
+      "seder_alt_names": "Seeds"
+    },
+    {
+      "mishna_id": 106,
+      "perek": 1,
+      "mishna": 6,
+      "mishna_text": "אין תורמין מן התלוש על המחובר, ולא מן המחובר על התלוש. ואם תרם אין תרומתו תרומה.",
+      "masechta_id": 6,
+      "masechta_name": "Terumos",
+      "masechta_alt_names": "Terumot,T'rumot",
+      "seder_id": 1,
+      "seder_name": "Zeraim",
+      "seder_alt_names": "Seeds"
+    },
+    {
+      "mishna_id": 107,
+      "perek": 1,
+      "mishna": 7,
+      "mishna_text": "אין תורמין מן החדש על הישן, ולא מן הישן על החדש. ואם תרם אין תרומתו תרומה, לפי שאין מפרישין אלא מן הראוי.",
+      "masechta_id": 6,
+      "masechta_name": "Terumos",
+      "masechta_alt_names": "Terumot,T'rumot",
+      "seder_id": 1,
+      "seder_name": "Zeraim",
+      "seder_alt_names": "Seeds"
+    }
+  ]
+}
