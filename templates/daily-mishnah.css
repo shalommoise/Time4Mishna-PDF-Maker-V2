@@ -43,6 +43,7 @@ body {
 .document-header {
   background: var(--header-footer-bg);
   border-bottom: 0;
+  border-radius: 2.5mm;
   color: #ffffff;
   padding: 4mm 7mm 3.5mm;
   margin-bottom: 7mm;
@@ -173,6 +174,7 @@ body {
   align-items: center;
   background: var(--header-footer-bg);
   border-top: 0;
+  border-radius: 2.5mm;
   bottom: 8mm;
   color: #ffffff;
   display: flex;
