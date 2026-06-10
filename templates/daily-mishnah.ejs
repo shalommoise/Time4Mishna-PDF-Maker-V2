@@ -18,37 +18,39 @@
     <style>
       @page {
         @top-left {
-          background: #344d6b;
-          content: url("data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20width=%2718mm%27%20height=%278mm%27%20viewBox=%270%200%2018%208%27%3E%3Crect%20width=%2718%27%20height=%278%27%20fill=%27%23ffffff%27/%3E%3Cpath%20fill=%27%23344d6b%27%20d=%27M2.5%200H18V8H2.5A2.5%202.5%200%200%201%200%205.5V2.5A2.5%202.5%200%200%201%202.5%200Z%27/%3E%3C/svg%3E");
-          height: 8mm;
-          line-height: 0;
-          text-align: left;
-          vertical-align: middle;
+          content: none;
         }
 
         @top-center {
-          background: #344d6b;
-          color: #f4f8fc;
-          content: <%- continuationHeaderTitleCss %>;
-          direction: rtl;
-          font-family: "Guttman Hatzvi", "Noto Serif Hebrew", "Noto Sans Hebrew", "Times New Roman", serif;
-          font-size: 10px;
-          font-weight: 700;
-          height: 8mm;
-          line-height: 8mm;
-          padding: 0 3mm;
-          text-align: right;
-          vertical-align: middle;
-          white-space: nowrap;
+          content: none;
         }
 
         @top-right {
-          background: #344d6b;
-          content: url("data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20width=%2718mm%27%20height=%278mm%27%20viewBox=%270%200%2018%208%27%3E%3Crect%20width=%2718%27%20height=%278%27%20fill=%27%23ffffff%27/%3E%3Cpath%20fill=%27%23344d6b%27%20d=%27M0%200H15.5A2.5%202.5%200%200%201%2018%202.5V5.5A2.5%202.5%200%200%201%2015.5%208H0Z%27/%3E%3C/svg%3E");
+          background-color: transparent;
+          background-image: url("data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%20100%2020%27%20preserveAspectRatio=%27none%27%3E%3Crect%20width=%27100%27%20height=%2720%27%20rx=%272%27%20ry=%272%27%20fill=%27%23344d6b%27/%3E%3C/svg%3E");
+          background-position: top right;
+          background-repeat: no-repeat;
+          background-size: 100% 8mm;
+          box-sizing: content-box;
+          border: 0;
+          border-radius: 1mm;
+          box-shadow: none;
+          color: #f4f8fc;
+          content: <%- continuationHeaderTitleCss %>;
+          direction: rtl;
+          font-family: "Guttman Hatzvi", "Noto Serif Hebrew", "Noto Sans Hebrew", "Times New Roman", "Inter", "Segoe UI", Arial, serif;
+          font-size: 9px;
+          font-weight: 700;
           height: 8mm;
-          line-height: 0;
+          line-height: 8mm;
+          overflow: hidden;
+          padding: 0 5mm 6mm;
           text-align: right;
+          text-decoration: none;
+          text-overflow: ellipsis;
           vertical-align: middle;
+          white-space: nowrap;
+          width: 164mm;
         }
       }
 

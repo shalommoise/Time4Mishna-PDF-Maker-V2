@@ -1,6 +1,6 @@
 @page {
   size: A4;
-  margin: 34mm 18mm 20mm;
+  margin: 40mm 18mm 20mm;
 }
 
 @page:first {
@@ -37,7 +37,7 @@ body {
 
 .pdf-page {
   min-height: 100vh;
-  padding-bottom: 18mm;
+  padding-bottom: 0;
 }
 
 .document-header {
@@ -175,24 +175,25 @@ body {
   background: var(--header-footer-bg);
   border-top: 0;
   border-radius: 2.5mm;
-  bottom: 8mm;
   color: #ffffff;
   display: flex;
   font-family: var(--latin-font);
   font-size: 10px;
   gap: 3mm;
   justify-content: center;
-  left: 0;
   line-height: 1.35;
-  padding: 2mm 4mm;
-  position: fixed;
-  right: 0;
+  margin-top: 8mm;
+  min-height: 13mm;
+  padding: 2.5mm 5mm;
+  page-break-inside: avoid;
+  break-inside: avoid;
   text-align: center;
 }
 
 .jewish-futures-logo {
+  flex: 0 0 auto;
   display: block;
-  height: 7mm;
-  max-width: 32mm;
+  height: 8mm;
+  max-width: 34mm;
   object-fit: contain;
 }

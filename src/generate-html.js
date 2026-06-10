@@ -87,7 +87,7 @@ async function buildTemplateData({ mishnayos, schedule = null }) {
   return {
     hebrewTitle,
     englishTitle,
-    continuationHeaderTitleCss: cssString(`${hebrewTitle} | \u2066Time4Mishna\u2069`),
+    continuationHeaderTitleCss: cssString(`${hebrewTitle} | \u2066${englishTitle}\u2069 | \u2066Time4Mishna\u2069`),
     dateInfo: formatDateInfo(schedule),
     schedule,
     mishnayos: normalizedMishnayos,
