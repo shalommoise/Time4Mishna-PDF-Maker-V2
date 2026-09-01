@@ -10,5 +10,7 @@ output/chazara/pdf/**/*.pdf
 !output/chazara/html/.gitkeep
 !output/chazara/pdf/.gitkeep
 
+output/flat/
+
 npm-debug.log*
 .DS_Store

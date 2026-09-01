@@ -8,6 +8,7 @@ const { closePool } = require('./db');
 const { generateHtml } = require('./generate-html');
 const { generatePdfFromHtmlFile } = require('./generate-pdf');
 const { buildOutputFilename, buildOutputParts } = require('./filename-builder');
+const { flattenPdfs } = require('./flatten-output');
 const {
   getDailyScheduleByGregorianDate,
   getMishnayosByRange,
@@ -278,6 +279,24 @@ async function generateChazaraCycle(options) {
   }
 }
 
+async function flattenOutput() {
+  const root = projectRoot();
+  const destDir = path.join(root, 'output', 'flat');
+  const chazaraPdfDir = path.join(root, 'output', 'chazara', 'pdf');
+
+  const { copied, renamed, total } = await flattenPdfs({
+    sourceDirs: [path.join(root, 'output', 'pdf'), chazaraPdfDir],
+    destDir,
+    labelFor: (srcPath) => (srcPath.startsWith(chazaraPdfDir) ? 'chazara' : 'regular')
+  });
+
+  console.log(`Flattened ${copied} of ${total} PDF(s) into ${destDir}.`);
+
+  if (renamed > 0) {
+    console.log(`${renamed} filename collision(s) had different content and were kept as separate, suffixed files.`);
+  }
+}
+
 async function generateSample() {
   const samplePath = path.join(projectRoot(), 'samples', 'terumos_1_4-1_7.sample.json');
   const sample = JSON.parse(await fsp.readFile(samplePath, 'utf8'));
@@ -325,6 +344,14 @@ program
   )
   .option('--force', 'Regenerate output even if the HTML/PDF already exists', false)
   .action(generateChazaraCycle);
+
+program
+  .command('flatten')
+  .description(
+    'Copy every generated PDF (regular and chazara) into one flat output/flat/ directory ' +
+      '(no subfolders), for easy bulk upload.'
+  )
+  .action(flattenOutput);
 
 program
   .command('generate:sample')

@@ -8,6 +8,7 @@
     "generate:ids": "node src/cli.js generate:ids",
     "generate:cycle": "node src/cli.js generate:cycle",
     "generate:chazara-cycle": "node src/cli.js generate:chazara-cycle",
+    "flatten": "node src/cli.js flatten",
     "generate:sample": "node src/cli.js generate:sample",
     "check": "node src/cli.js generate:sample"
   },
