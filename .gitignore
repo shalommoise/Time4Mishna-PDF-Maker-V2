@@ -3,8 +3,12 @@ node_modules/
 
 output/html/**/*.html
 output/pdf/**/*.pdf
+output/chazara/html/**/*.html
+output/chazara/pdf/**/*.pdf
 !output/html/.gitkeep
 !output/pdf/.gitkeep
+!output/chazara/html/.gitkeep
+!output/chazara/pdf/.gitkeep
 
 npm-debug.log*
 .DS_Store

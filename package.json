@@ -6,6 +6,8 @@
   "scripts": {
     "generate:date": "node src/cli.js generate:date",
     "generate:ids": "node src/cli.js generate:ids",
+    "generate:cycle": "node src/cli.js generate:cycle",
+    "generate:chazara-cycle": "node src/cli.js generate:chazara-cycle",
     "generate:sample": "node src/cli.js generate:sample",
     "check": "node src/cli.js generate:sample"
   },
@@ -22,6 +24,7 @@
     "dotenv": "^16.4.7",
     "ejs": "^3.1.10",
     "mysql2": "^3.12.0",
-    "playwright": "^1.49.1"
+    "playwright": "^1.62.1",
+    "playwright-core": "^1.62.1"
   }
 }

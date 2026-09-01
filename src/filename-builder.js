@@ -32,20 +32,34 @@ function hebrewMasechtaName(englishName) {
   return HEBREW_MASECHTA_NAMES[englishName] || englishName || 'Mishnah';
 }
 
+function crossesMasechta(first, last) {
+  return (first.masechta_id ?? first.masechta_name) !== (last.masechta_id ?? last.masechta_name);
+}
+
 function buildHebrewTitle(mishnayos) {
   const { first, last } = getFirstAndLast(mishnayos);
-  const name = hebrewMasechtaName(first.masechta_name);
+  const firstRef = `${hebrewMasechtaName(first.masechta_name)} ${toHebrewNumber(first.perek)}:${toHebrewNumber(
+    first.mishna
+  )}`;
+  const lastRef = `${toHebrewNumber(last.perek)}:${toHebrewNumber(last.mishna)}`;
 
-  return `${name} ${toHebrewNumber(first.perek)}:${toHebrewNumber(first.mishna)}-${toHebrewNumber(
-    last.perek
-  )}:${toHebrewNumber(last.mishna)}`;
+  if (crossesMasechta(first, last)) {
+    return `${firstRef}-${hebrewMasechtaName(last.masechta_name)} ${lastRef}`;
+  }
+
+  return `${firstRef}-${lastRef}`;
 }
 
 function buildEnglishTitle(mishnayos) {
   const { first, last } = getFirstAndLast(mishnayos);
-  const name = first.masechta_name || 'Mishnah';
+  const firstRef = `${first.masechta_name || 'Mishnah'} ${first.perek}:${first.mishna}`;
+  const lastRef = `${last.perek}:${last.mishna}`;
 
-  return `${name} ${first.perek}:${first.mishna}-${last.perek}:${last.mishna}`;
+  if (crossesMasechta(first, last)) {
+    return `${firstRef}-${last.masechta_name || 'Mishnah'} ${lastRef}`;
+  }
+
+  return `${firstRef}-${lastRef}`;
 }
 
 function slugify(value, fallback = 'mishnah') {
@@ -62,9 +76,14 @@ function slugify(value, fallback = 'mishnah') {
 
 function buildOutputFilename(mishnayos) {
   const { first, last } = getFirstAndLast(mishnayos);
-  const name = slugify(first.masechta_name);
+  const firstRef = `${slugify(first.masechta_name)}_${first.perek}.${first.mishna}`;
+  const lastRef = `${last.perek}.${last.mishna}`;
 
-  return `${name}_${first.perek}.${first.mishna}-${last.perek}.${last.mishna}`;
+  if (crossesMasechta(first, last)) {
+    return `${firstRef}-${slugify(last.masechta_name)}_${lastRef}`;
+  }
+
+  return `${firstRef}-${lastRef}`;
 }
 
 function buildOutputParts(mishnayos) {
@@ -82,6 +101,7 @@ module.exports = {
   buildEnglishTitle,
   buildOutputFilename,
   buildOutputParts,
+  crossesMasechta,
   hebrewMasechtaName,
   slugify
 };
